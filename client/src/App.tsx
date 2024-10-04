@@ -6,7 +6,7 @@ import Splash from "./components/Splash";
 const App = () => {
   const [nickname, setNickname] = useState("");
 
-  const handleEnterPage = async (nickname) => {
+  const handleEnterPage = async (nickname: string) => {
     await Tone.start();
     setNickname(nickname);
   };

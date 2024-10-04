@@ -72,9 +72,7 @@ const Envelope = ({ label, textColor, fill, onChange }) => {
   return (
     <div className="flex flex-col items-center">
       {/* Header */}
-      <h2 className={`text-xl text-${textColor}`}>
-        {label + " Envelope"}
-      </h2>
+      <h2 className={`text-xl text-${textColor}`}>{label + " Envelope"}</h2>
       <div className="flex flex-row mt-1.5">
         {/* Envelope Wrapper*/}
         <div className="flex flex-col">

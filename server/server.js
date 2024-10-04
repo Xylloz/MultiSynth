@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const { PasteClient } = require("pastebin-api");
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
@@ -15,16 +14,13 @@ const io = new Server(server, {
   },
 });
 
-const client = new PasteClient(process.env.PASTE_API_KEY);
+let client;
+//const client = new PasteClient(process.env.PASTE_API_KEY);
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.resolve(__dirname, "../client")));
 
-const PORT = process.env.PORT;
-
-// Server Index
-app.use("/build", express.static(path.join(__dirname, "../client/dist")));
+const PORT = process.env.PORT || 3000;
 
 // Pastebin API
 app.post("/paste", async (req, res) => {
