@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Nexus from "nexusui";
 
-const Oscilloscope = ({ synth, nickname, exportHandler }) => {
+const Oscilloscope = ({ synth, exportHandler }) => {
   const oscRef = useRef(null);
   const spectroRef = useRef(null);
 

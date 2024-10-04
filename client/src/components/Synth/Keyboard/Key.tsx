@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import socket from "../../../utils/socket";
 
 const Key = ({ note, isPlaying, isFlat, onPress, onRelease }) => {
   const [isKeyDown, setIsKeyDown] = useState(false);

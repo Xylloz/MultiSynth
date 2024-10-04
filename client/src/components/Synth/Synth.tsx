@@ -48,7 +48,7 @@ const Synth = ({ nickname }) => {
 
   const exportOptions = async () => {
     try {
-      const response = await fetch("http://localhost:3000/paste", {
+      const response = await fetch("/api/paste", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

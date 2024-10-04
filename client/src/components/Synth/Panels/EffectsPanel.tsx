@@ -1,4 +1,3 @@
-import React from "react";
 import DialBox from "../Interfaces/DialBox";
 
 const EffectsPanel = ({ options, handleChange }) => {

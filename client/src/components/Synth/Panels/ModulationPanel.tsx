@@ -1,4 +1,3 @@
-import React from "react";
 import OscillatorUI from "../Interfaces/OscillatorUI";
 import Envelope from "../Interfaces/Envelope";
 import DialBox from "../Interfaces/DialBox";

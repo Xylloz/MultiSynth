@@ -29,7 +29,6 @@ const createSynth = (options) => {
   // };
 
   synth.set({
-    maxPolyphony: 64,
     volume,
     detune,
     modulationIndex,

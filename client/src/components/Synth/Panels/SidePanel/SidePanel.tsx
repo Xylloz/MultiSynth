@@ -1,4 +1,3 @@
-import React from "react";
 import Chatbox from "./Chatbox/Chatbox";
 import Oscilloscope from "./Oscilloscope";
 
