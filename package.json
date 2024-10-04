@@ -1,0 +1,23 @@
+{
+  "name": "multisynth",
+  "version": "0.2.0",
+  "description": "Welcome to MultiSynth! A collaborative Synth application.",
+  "scripts": {
+    "start": "npm run build && concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:client": "cd client && npm run start",
+    "start:server": "cd server && npm run start",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "clean": "npm run clean:client && npm run clean:server && rm -rf node_modules",
+    "clean:client": "cd client && npm run clean",
+    "clean:server": "cd server && npm run clean",
+    "install": "cd client && npm install && cd ../server && npm install"
+  },
+  "author": "xylloz",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
