@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Notes from "../../../constants/Notes";
 import socket from "../../../utils/socket";
 import Key from "./Key";
@@ -36,7 +36,7 @@ const Keyboard = ({ synth }) => {
 			socket.off("keydown", handleKeyDown);
 			socket.off("keyup", handleKeyUp);
 		}; // Cleanup on dismount
-	}, []);
+	}, [synth, isPlaying]);
 
 	// Play current active notes
 	useEffect(() => {
@@ -46,7 +46,7 @@ const Keyboard = ({ synth }) => {
 		// return () => {
 		//   synth.releaseAll();
 		// }
-	}, [activeKeys]);
+	}, [activeKeys, synth]);
 
 	const handleKeyPress = (key) => {
 		console.log(`user setting ${key} as active`);
@@ -80,7 +80,7 @@ const Keyboard = ({ synth }) => {
 			<div className="flex flex-row flex-nowrap justify-center">
 				{Notes.map((note, index) => (
 					<Key
-						key={index}
+						key={"${note}-${index}"}
 						note={note}
 						isPlaying={isPlaying}
 						isFlat={note.length > 2}

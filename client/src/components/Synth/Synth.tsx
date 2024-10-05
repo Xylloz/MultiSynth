@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import createSynth from "../../utils/tone";
 import Keyboard from "./Keyboard/Keyboard";
 import EffectsPanel from "./Panels/EffectsPanel";
@@ -37,7 +37,7 @@ const Synth = ({ nickname }) => {
 		console.log("Options changed: ", options);
 		synth.set(options);
 		console.log("Synth: ", synth);
-	}, [options]);
+	}, [options, synth]);
 
 	const handleChange = (option, value) => {
 		setOptions((prevOptions) => ({

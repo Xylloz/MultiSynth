@@ -1,5 +1,5 @@
 import Nexus from "nexusui";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const DialBox = ({ label, fill, min, max, step, value, onChange }) => {
 	const dialRef = useRef(null);
@@ -28,7 +28,7 @@ const DialBox = ({ label, fill, min, max, step, value, onChange }) => {
 
 		number.link(dial);
 
-		dial.on("change", (v) => {
+		dial.on("change", (v: number) => {
 			console.log("dial changed: ", v);
 			onChange(v);
 		});
@@ -38,7 +38,7 @@ const DialBox = ({ label, fill, min, max, step, value, onChange }) => {
 			dial.destroy();
 			number.destroy();
 		};
-	}, []); // On mount
+	}, [fill, min, max, step, value, onChange]); // On mount
 
 	return (
 		<div className="flex flex-col items-center mx-2">

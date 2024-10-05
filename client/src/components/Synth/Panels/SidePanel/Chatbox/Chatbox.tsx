@@ -6,12 +6,23 @@ import ChatMessages from "./ChatMessages";
 
 const Chatbox: React.FC<ChatboxProps> = ({ nickname }) => {
 	const [messages, setMessages] = useState<ChatMessage[]>([
-		{ sender: "System", content: "Welcome to MultiSynth!" },
+		{
+			sender: "System",
+			content: "Welcome to MultiSynth!",
+			timestamp: Date.now(),
+		},
 	]);
 
 	useEffect(() => {
-		const handleChatMessage = (sender: string, content: string) => {
-			setMessages((prevMessages) => [...prevMessages, { sender, content }]);
+		const handleChatMessage = (
+			sender: string,
+			content: string,
+			timestamp: number,
+		) => {
+			setMessages((prevMessages) => [
+				...prevMessages,
+				{ sender, content, timestamp },
+			]);
 		};
 
 		socket.on("chat message", handleChatMessage);
@@ -28,7 +39,7 @@ const Chatbox: React.FC<ChatboxProps> = ({ nickname }) => {
 
 		setMessages((prevMessages) => [
 			...prevMessages,
-			{ sender: nickname, content: msg },
+			{ sender: nickname, content: msg, timestamp: Date.now() },
 		]);
 	};
 

@@ -1,5 +1,5 @@
 import Nexus from "nexusui";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Envelope = ({ label, textColor, fill, onChange }) => {
 	const envRef = useRef(null);
@@ -23,7 +23,7 @@ const Envelope = ({ label, textColor, fill, onChange }) => {
 		envelope.colorize("accent", "#222222");
 		envelope.colorize("fill", fill);
 
-		envelope.on("change", (v) => {
+		envelope.on("change", (v: number[]) => {
 			console.log("Envelope changed: ", { v });
 			onChange({ attack: v[0], decay: v[1], sustain: v[2], release: v[3] });
 		});
@@ -67,7 +67,7 @@ const Envelope = ({ label, textColor, fill, onChange }) => {
 			decayCurve.destroy();
 			releaseCurve.destroy();
 		};
-	}, []); // On Component Mount
+	}, [fill, onChange]); // On Component Mount
 
 	return (
 		<div className="flex flex-col items-center">

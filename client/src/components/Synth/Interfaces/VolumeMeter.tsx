@@ -1,5 +1,5 @@
 import Nexus from "nexusui";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const VolumeMeter = ({ synth }) => {
 	const meterRef = useRef(null);
@@ -22,7 +22,7 @@ const VolumeMeter = ({ synth }) => {
 		return () => {
 			meter.destroy();
 		};
-	}, []);
+	}, [synth]);
 	return (
 		<div className="flex-none m-0 p-0">
 			<div ref={meterRef} />

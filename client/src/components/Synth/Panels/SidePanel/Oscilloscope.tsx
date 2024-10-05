@@ -32,17 +32,21 @@ const Oscilloscope = ({ synth, exportHandler }) => {
 			osc.destroy();
 			spectrogram.destroy();
 		};
-	}, []); // On Mount
+	}, [synth]); // On Mount
 
 	return (
 		<div className="flex flex-col ml-1.5 mt-4">
 			<div className="flex flex-row flex-grow items-center">
-				<button className="text-pinker bg-foreground text-sm mr-2">
+				<button
+					className="text-pinker bg-foreground text-sm mr-2"
+					type="button"
+				>
 					Import
 				</button>
 				<button
 					className="text-pinker bg-foreground text-sm ml-2"
 					onClick={exportHandler}
+					type="button"
 				>
 					Export
 				</button>

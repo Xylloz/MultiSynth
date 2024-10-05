@@ -1,5 +1,5 @@
 import Nexus from "nexusui";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const OscillatorUI = ({ options, textColor, fill, onChange }) => {
 	const sliderRef = useRef(null);
@@ -19,7 +19,7 @@ const OscillatorUI = ({ options, textColor, fill, onChange }) => {
 		slider.colorize("accent", fill);
 
 		// Event Listeners
-		slider.on("change", (value) => {
+		slider.on("change", (value: number) => {
 			console.log("Slider value changed: ", { value });
 		});
 
@@ -27,7 +27,7 @@ const OscillatorUI = ({ options, textColor, fill, onChange }) => {
 		return () => {
 			slider.destroy();
 		};
-	}, []); // Only run on mount
+	}, [fill]); // Only run on mount
 
 	return (
 		<div className="flex flex-col items-center flex-grow">

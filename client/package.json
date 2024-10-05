@@ -7,10 +7,10 @@
 		"start": "vite preview",
 		"build": "tsc -b && vite build",
 		"dev": "vite",
-		"lint": "biome lint ./src ./*.{js,ts,json}",
-		"lint:fix": "biome lint --write ./src ./*.{js,ts,json}",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome lint --write ./src",
 		"format": "biome format --write ./src",
-		"check": "biome check --write ./src ./*.{js,ts,json}",
+		"check": "biome check --write ./src",
 		"clean": "rm -rf dist node_modules"
 	},
 	"keywords": [],
