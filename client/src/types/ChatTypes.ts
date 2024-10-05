@@ -1,16 +1,16 @@
 export interface ChatMessage {
-  sender: string;
-  content: string;
+	sender: string;
+	content: string;
 }
 
 export interface ChatboxProps {
-  nickname: string;
+	nickname: string;
 }
 
 export interface ChatMessagesProps {
-  messages: ChatMessage[];
+	messages: ChatMessage[];
 }
 
 export interface ChatFormProps {
-  onSendMessage: (message: string) => void;
+	onSendMessage: (message: string) => void;
 }

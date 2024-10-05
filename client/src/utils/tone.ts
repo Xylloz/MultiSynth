@@ -17,27 +17,27 @@ import * as Tone from "tone";
 // };
 
 const createSynth = (options) => {
-  const { volume, detune, modulationIndex, harmonicity, envelope, oscillator } =
-    options;
+	const { volume, detune, modulationIndex, harmonicity, envelope, oscillator } =
+		options;
 
-  const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+	const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
 
-  // const oscillator = {
-  //   type: "triangle",
-  //   partialCount: 3,
-  //   partials: [0.75, 0.50, 0.25],
-  // };
+	// const oscillator = {
+	//   type: "triangle",
+	//   partialCount: 3,
+	//   partials: [0.75, 0.50, 0.25],
+	// };
 
-  synth.set({
-    volume,
-    detune,
-    modulationIndex,
-    harmonicity,
-    oscillator,
-    envelope,
-  });
+	synth.set({
+		volume,
+		detune,
+		modulationIndex,
+		harmonicity,
+		oscillator,
+		envelope,
+	});
 
-  return synth;
+	return synth;
 };
 
 export default createSynth;

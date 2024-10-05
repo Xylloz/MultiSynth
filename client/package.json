@@ -1,36 +1,41 @@
 {
-  "name": "client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "vite preview",
-    "build": "tsc -b && vite build",
-    "dev": "vite",
-    "clean": "rm -rf dist node_modules"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "nexusui": "^2.1.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "socket.io-client": "^4.7.5",
-    "tone": "^15.0.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
-    "@babel/preset-react": "^7.24.1",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.2",
-    "autoprefixer": "^10.4.19",
-    "globals": "^15.10.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.8"
-  }
+	"name": "client",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "vite preview",
+		"build": "tsc -b && vite build",
+		"dev": "vite",
+		"lint": "biome lint ./src ./*.{js,ts,json}",
+		"lint:fix": "biome lint --write ./src ./*.{js,ts,json}",
+		"format": "biome format --write ./src",
+		"check": "biome check --write ./src ./*.{js,ts,json}",
+		"clean": "rm -rf dist node_modules"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"nexusui": "^2.1.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"socket.io-client": "^4.7.5",
+		"tone": "^15.0.4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.3",
+		"@babel/preset-env": "^7.24.3",
+		"@babel/preset-react": "^7.24.1",
+		"@biomejs/biome": "1.9.3",
+		"@types/react": "^18.3.11",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react": "^4.3.2",
+		"autoprefixer": "^10.4.19",
+		"globals": "^15.10.0",
+		"postcss": "^8.4.47",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.6.2",
+		"vite": "^5.4.8"
+	}
 }
