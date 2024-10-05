@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Notes from "../../../constants/Notes";
-import socket from "../../../utils/socket";
+import Notes from "@src/constants/Notes";
+import socket from "@utils/socket";
 import Key from "./Key";
 
 const Keyboard = ({ synth }) => {
@@ -9,7 +9,7 @@ const Keyboard = ({ synth }) => {
 
 	// Define socket listeners on mount
 	useEffect(() => {
-		const handleKeyDown = (user, key) => {
+		const handleKeyDown = (user, key: string) => {
 			console.log(`server ${user} has pressed ${key}`);
 			console.log(`server setting ${key} as active`);
 			if (!isPlaying) setIsPlaying(true);
@@ -17,7 +17,7 @@ const Keyboard = ({ synth }) => {
 			setActiveKeys((prevKeys) => [...prevKeys, key]);
 		};
 
-		const handleKeyUp = (user, key) => {
+		const handleKeyUp = (user, key: string) => {
 			console.log(`server ${user} has released ${key}`);
 			console.log(`server releasing ${key}`);
 			// Remove the released key from state
@@ -48,7 +48,7 @@ const Keyboard = ({ synth }) => {
 		// }
 	}, [activeKeys, synth]);
 
-	const handleKeyPress = (key) => {
+	const handleKeyPress = (key: string) => {
 		console.log(`user setting ${key} as active`);
 
 		// Send event to other clients
@@ -60,7 +60,7 @@ const Keyboard = ({ synth }) => {
 		setActiveKeys((prevKeys) => [...prevKeys, key]);
 	};
 
-	const handleKeyRelease = (key) => {
+	const handleKeyRelease = (key: string) => {
 		console.log(`user releasing ${key}`);
 
 		// Send event to other clients
@@ -78,9 +78,9 @@ const Keyboard = ({ synth }) => {
 	return (
 		<div className="flex flex-col items-center mb-12">
 			<div className="flex flex-row flex-nowrap justify-center">
-				{Notes.map((note, index) => (
+				{Notes.map((note: string) => (
 					<Key
-						key={"${note}-${index}"}
+						key={note}
 						note={note}
 						isPlaying={isPlaying}
 						isFlat={note.length > 2}

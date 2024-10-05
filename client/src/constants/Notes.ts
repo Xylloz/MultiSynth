@@ -1,4 +1,4 @@
-const Notes = [
+const Notes: string[] = [
 	"C2",
 	"Db2",
 	"D2",

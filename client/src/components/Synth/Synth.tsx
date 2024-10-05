@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import createSynth from "../../utils/tone";
+import createSynth from "@utils/tone";
 import Keyboard from "./Keyboard/Keyboard";
 import EffectsPanel from "./Panels/EffectsPanel";
 import ModulationPanel from "./Panels/ModulationPanel";
