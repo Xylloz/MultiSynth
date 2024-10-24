@@ -24,7 +24,7 @@ const ChatForm: React.FC<ChatFormProps> = ({ onSendMessage }) => {
 				onChange={(e) => setMessage(e.target.value)}
 				placeholder="Type a message..."
 			/>
-			<button className="hidden w-24 text-white" type="submit">
+			<button className="w-24 text-white" type="submit">
 				Send
 			</button>
 		</form>

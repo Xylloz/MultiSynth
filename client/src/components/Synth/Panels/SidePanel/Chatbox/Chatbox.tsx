@@ -1,46 +1,28 @@
-import type { ChatMessage, ChatboxProps } from "@src/types/ChatTypes";
+import { useChatStore } from "@src/stores/chatStore";
+import type { ChatboxProps } from "@src/types/ChatTypes";
 import socket from "@utils/socket";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ChatForm from "./ChatForm";
 import ChatMessages from "./ChatMessages";
 
 const Chatbox: React.FC<ChatboxProps> = ({ nickname }) => {
-	const [messages, setMessages] = useState<ChatMessage[]>([
-		{
-			sender: "System",
-			content: "Welcome to MultiSynth!",
-			timestamp: Date.now(),
-		},
-	]);
+	const messages = useChatStore((state) => state.messages);
+	const addMessage = useChatStore((state) => state.addMessage);
 
 	useEffect(() => {
-		const handleChatMessage = (
-			sender: string,
-			content: string,
-			timestamp: number,
-		) => {
-			setMessages((prevMessages) => [
-				...prevMessages,
-				{ sender, content, timestamp },
-			]);
-		};
-
-		socket.on("chat message", handleChatMessage);
+		socket.on("chat message", addMessage);
 
 		return () => {
-			socket.off("chat message", handleChatMessage);
+			socket.off("chat message", addMessage);
 		};
-	}, []);
+	}, [addMessage]);
 
-	const handleSendMessage = (msg: string) => {
+	const handleSendMessage = (content: string) => {
 		console.log("client sent message");
 
-		socket.emit("chat message", nickname, msg);
+		socket.emit("chat message", nickname, content);
 
-		setMessages((prevMessages) => [
-			...prevMessages,
-			{ sender: nickname, content: msg, timestamp: Date.now() },
-		]);
+		addMessage(nickname, content);
 	};
 
 	return (

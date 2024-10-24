@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import createSynth from "@utils/tone";
+import { useEffect, useState } from "react";
 import Keyboard from "./Keyboard/Keyboard";
 import EffectsPanel from "./Panels/EffectsPanel";
 import ModulationPanel from "./Panels/ModulationPanel";
@@ -7,13 +7,14 @@ import SidePanel from "./Panels/SidePanel/SidePanel";
 import SynthPanel from "./Panels/SynthPanel";
 
 import VolumeMeter from "./Interfaces/VolumeMeter";
+import type { FMSynthOptions } from "tone";
 
 const Synth = ({ nickname }) => {
-	const initialOptions = {
+	const initialOptions: FMSynthOptions = {
 		volume: 0.5,
 		detune: 0,
-		modulationIndex: 10,
 		harmonicity: 0,
+		modulationIndex: 10,
 		envelope: {
 			attack: 0,
 			decay: 0.5,
@@ -24,8 +25,11 @@ const Synth = ({ nickname }) => {
 			releaseCurve: "linear",
 		},
 		oscillator: {
-			type: "triangle",
-			partialCount: 3,
+			type: "sine1",
+			phase: 0,
+			volume: 0,
+			mute: false,
+			onstop: () => null,
 		},
 	};
 

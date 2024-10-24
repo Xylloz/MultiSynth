@@ -1,4 +1,4 @@
-import { PolySynth, FMSynth } from "tone";
+import { FMSynth, type FMSynthOptions, PolySynth } from "tone";
 
 // const optionsDefault = {
 //   volume,
@@ -16,11 +16,11 @@ import { PolySynth, FMSynth } from "tone";
 //   },
 // };
 
-const createSynth = (options) => {
+const createSynth = (options: FMSynthOptions) => {
 	const { volume, detune, modulationIndex, harmonicity, envelope, oscillator } =
 		options;
 
-	const synth = new PolySynth(FMSynth).toDestination();
+	const synth: PolySynth<FMSynth> = new PolySynth(FMSynth).toDestination();
 
 	// const oscillator = {
 	//   type: "triangle",

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import Notes from "@src/constants/Notes";
 import socket from "@utils/socket";
+import { useEffect, useState } from "react";
 import Key from "./Key";
 
 const Keyboard = ({ synth }) => {
